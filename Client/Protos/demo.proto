@@ -1,0 +1,25 @@
+//bu satýr otomatik olarak geliyor. proto3 kullanýlacaðýný belirtiyoruz.
+syntax = "proto3"; 
+
+/*Bu satýr otomatik olarak geliyor. Bu satýrda c# tarafýnda bu proto 
+dosyasýna hangi namespace ile eriþmek istiyorsak onu belirtiyoruz */
+option csharp_namespace = "WebApiServer.DemoProtos"; 
+
+service DemoService{  //Servisimizin ismi
+	/*GetDemoData isminde bir methodumuz olacak. 
+    Parametre olarak DemoRequest alacak ve cevap olarak DemoResponse dönecek. */
+	rpc GetDemoData(DemoRequest) returns (DemoResponse); 
+}
+
+//Methoda parametre vereceðimiz DemoRequest message nesnesini tanýmlýyoruz.
+message DemoRequest{ 
+	int32 id = 1;
+}
+
+//Methoddan cevap olarak dönecek olan DemoResponse nesnesini tanýmlýyoruz.
+message DemoResponse{ 
+	int32 id = 1;
+	string name = 2;
+}
+
+
